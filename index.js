@@ -6,7 +6,6 @@ client.connect();
 
 const dotenv = require("dotenv");
 dotenv.config();
-console.log("My secret --", process.env.JWT_SECRET);
 
 // Building & Starting a Web Server
 // npm install express
