@@ -1,7 +1,10 @@
 const { Client } = require("pg"); // imports the pg module
 
 // const client = new Client("postgres://localhost:5432/juicebox-dev");
-const client = new Client(process.env.DATABASE_URL);
+// const client = new Client(process.env.DATABASE_URL);
+const client = new Client(
+  process.env.DATABASE_URL || "postgres://localhost:5432/juicebox-dev"
+);
 
 /**
  * USER Methods
@@ -386,18 +389,18 @@ async function getAllTags() {
 module.exports = {
   client,
   createUser,
-  updateUser,
+  createPost,
+  createTags,
+  createPostTag,
   getAllUsers,
+  getAllPosts,
+  getAllTags,
+  addTagsToPost,
   getUserById,
   getUserByUsername,
-  createPost,
-  updatePost,
-  getAllPosts,
   getPostsByUser,
-  getPostsByTagName,
-  createTags,
-  getAllTags,
-  createPostTag,
-  addTagsToPost,
   getPostById,
+  getPostsByTagName,
+  updateUser,
+  updatePost,
 };
